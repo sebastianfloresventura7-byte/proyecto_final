@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Eliminar Registro</title></head>
+<body>
+    <h1>(4) Eliminar Registro</h1>
+    
+    <form action="{{ url_for('eliminar') }}" method="POST">
+        <label>Escribe el nombre del estudiante a eliminar:</label><br>
+        <input type="text" name="nombre_buscar" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <br>
+    {% if eliminado %}
+        <p style="color: green;"><strong>¡El registro ha sido eliminado con éxito!</strong></p>
+    {% elif buscado %}
+        {% if resultado %}
+            <p style="color: red;"><strong>¿Estás seguro de que deseas eliminar este registro?</strong></p>
+            <p>Nombre: {{ resultado[0] }} - DNI: {{ resultado[1] }}</p>
+            
+            <form action="{{ url_for('eliminar') }}" method="POST">
+                <input type="hidden" name="nombre_eliminar" value="{{ resultado[0] }}">
+                <button type="submit" style="background-color: red; color: white;">Sí, Eliminar Definitivamente</button>
+            </form>
+        {% else %}
+            <p style="color: red;">No se encontró al estudiante para eliminar.</p>
+        {% endif %}
+    {% endif %}
+
+    <br><br>
+    <a href="{{ url_for('principal') }}"><button type="button">Volver al Menú</button></a>
+</body>
+</html>

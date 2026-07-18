@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Buscar Estudiante</title></head>
+<body>
+    <h1>(2) Buscar Estudiante</h1>
+
+    <form action="{{ url_for('buscar') }}" method="POST">
+
+        <label>Escribe el nombre a buscar:</label><br>
+
+        <input type="text" name="nombre_buscar" required>
+
+        <button type="submit">Buscar</button>
+
+    </form>
+
+    <br>
+    {% if buscado %}
+    
+        {% if resultado %}
+            <p><strong>¡Estudiante Encontrado!</strong></p>
+
+            <p>Nombre: {{ resultado[0] }} - apellido: {{ resultado[1] }} - DNI: {{ resultado[2] }}</p>
+            <p>nota 1: {{ resultado[3] }} - nota 2: {{ resultado[4] }} - nota 3: {{ resultado[5] }}</p>
+        {% else %}
+            <p style="color: red;">No se encontró ningún estudiante con ese nombre.</p>
+        {% endif %}
+        
+    {% endif %}
+
+    <br><br>
+
+    <a href="{{ url_for('principal') }}"><button type="button">Volver al Menú</button></a>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+    <h1>Usuarios Registrados</h1>
+    
+    <ul>
+        
+        {% for i in lista_usuarios %}
+            <li>Nombre: {{ i[0] }} | apellido: {{ i[1] }} | DNI: {{ i[2] }}</li>
+            <li>nota 1: {{ i[3] }} | nota 2: {{ i[4] }} | nota 3: {{ i[5] }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    
+    <a href="{{ url_for('principal') }}">
+        <button type="button">Volver al Formulario</button>
+    </a>
+
+</body>
+</html>

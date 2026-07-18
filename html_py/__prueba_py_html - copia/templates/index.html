@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+</head>
+<body>
+    <h1>===== Bienvenido al Programa =====</h1>
+    <h3>Selecciona una opción:</h3>
+
+    <!-- Opción 1: Lleva al formulario de registro -->
+    <p>
+        <a href="{{ url_for('registrar') }}">
+            <button type="button" style="padding: 10px; width: 250px; text-align: left;">(1) Registrarse</button>
+        </a>
+    </p>
+
+    <!-- Opción 2: Buscar (Actualizado) -->
+    <p>
+        <a href="{{ url_for('buscar') }}">
+            <button type="button" style="padding: 10px; width: 250px; text-align: left;">(2) Buscar estudiante</button>
+        </a>
+    </p>
+
+    <!-- Opción 3: Editar (Actualizado) -->
+    <p>
+        <a href="{{ url_for('editar') }}">
+            <button type="button" style="padding: 10px; width: 250px; text-align: left;">(3) Editar información</button>
+        </a>
+    </p>
+
+    <!-- Opción 4: Eliminar (Actualizado) -->
+    <p>
+        <a href="{{ url_for('eliminar') }}">
+            <button type="button" style="padding: 10px; width: 250px; text-align: left;">(4) Eliminar registros</button>
+        </a>
+    </p>
+
+    <!-- Opción 5: Lleva a ver la lista de usuarios -->
+    <p>
+        <a href="{{ url_for('ver_usuarios') }}">
+            <button type="button" style="padding: 10px; width: 250px; text-align: left;">(5) Mostrar todos los estudiantes</button>
+        </a>
+    </p>
+</body>
+</html>

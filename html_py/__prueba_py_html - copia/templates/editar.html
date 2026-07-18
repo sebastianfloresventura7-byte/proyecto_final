@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><title>Editar Información</title></head>
+<body>
+    <h1>(3) Editar Información</h1>
+    
+    <form action="{{ url_for('editar') }}" method="POST">
+
+        <label>Escribe el nombre del estudiante a editar:</label><br>
+        <input type="text" name="nombre_buscar" required>
+
+        <button type="submit">Buscar</button>
+    </form>
+
+    <br>
+    {% if buscado %}
+        {% if resultado %}
+            <h3>Estudiante encontrado. Ingresa los nuevos datos:</h3>
+            
+            <form action="{{ url_for('editar') }}" method="POST">
+                
+                <p>Nombre: {{ resultado[0] }} - apellido: {{ resultado[1] }} - DNI: {{ resultado[2] }}</p>
+
+                <label>Nota 1:</label><br>
+                <input type="number" name="nueva_nota1" value="{{ resultado[3] }}" required><br><br>
+
+                <label>Nota 2:</label><br>
+                <input type="number" name="nueva_nota2" value="{{ resultado[4] }}" required><br><br>
+
+                <label>Nota 3:</label><br>
+                <input type="number" name="nueva_nota3" value="{{ resultado[5] }}" required><br><br>
+                
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        {% else %}
+            <p style="color: red;">No se encontró al estudiante para editar.</p>
+        {% endif %}
+    {% endif %}
+
+    <br><br>
+    <a href="{{ url_for('principal') }}"><button type="button">Volver al Menú</button></a>
+</body>
+</html>
