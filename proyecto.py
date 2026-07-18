@@ -11,5 +11,5 @@ if opcion == 1:
     ape=input("ingrese sus apellidos: ")
     dni=int(input("ingrese su numero de DNI: "))
     nota=float(input("ingrese su nota: "))
-    
+    print("hola ")
 
