@@ -12,4 +12,4 @@ if opcion == 1:
     dni=int(input("ingrese su numero de DNI: "))
     nota=float(input("ingrese su nota: "))
     print("hola ")
-
+    print("holahola")
